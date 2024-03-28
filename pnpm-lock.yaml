@@ -41,9 +41,6 @@ importers:
       '@surma/ts':
         specifier: workspace:*
         version: link:../ts
-      '@surma/vanilla_js':
-        specifier: workspace:*
-        version: link:../vanilla_js
       '@vitejs/plugin-react':
         specifier: ^4.2.1
         version: 4.2.1(vite@4.4.9)
@@ -54,8 +51,6 @@ importers:
   package/js_with_deps: {}
 
   package/ts: {}
-
-  package/vanilla_js: {}
 
 packages:
 
