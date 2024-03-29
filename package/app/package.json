@@ -6,7 +6,6 @@
   "main": "main.js",
   "dependencies": {
     "@surma/js_with_deps": "workspace:*",
-    "@surma/ts": "workspace:*",
     "@vitejs/plugin-react": "^4.2.1",
     "vite": "^4.4.9"
   },

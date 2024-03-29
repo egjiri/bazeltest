@@ -1,5 +1,5 @@
 import { ComponentOfDoom } from "@surma/js_with_deps";
-import { greet } from "@surma/ts";
+import { greet } from "package/ts";
 import { shouldBe42 } from "package/vanilla_js";
 import * as React from "react";
 

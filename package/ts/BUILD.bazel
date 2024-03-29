@@ -1,33 +1,26 @@
-load("@aspect_rules_js//js:defs.bzl", "js_library")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
 load("@bazel_skylib//lib:partial.bzl", "partial")
 load("@aspect_rules_swc//swc:defs.bzl", "swc")
 load("@aspect_rules_js//npm:defs.bzl", "npm_package")
-load("@npm//:defs.bzl", "npm_link_all_packages")
 
 package(default_visibility = ["//visibility:public"])
 
-npm_link_all_packages(name = "node_modules")
-
 ts_project(
-    name = "lib",
-    srcs = ["main.ts"],
+    name = "ts",
+    # srcs = ["main.ts"], # default: Include all TypeScript files in the package, recursively.
     declaration = True,
-    transpiler = partial.make(
-        swc,
-        swcrc = "//:swcrc",
-    ),
+    transpiler = partial.make(swc,swcrc = "//:swcrc"),
     tsconfig = "//:ts_config",
 )
 
 npm_package(
-    name = "ts",
+    name = "ts_package",
     # The package name does not need to be specified in this target since the name
     # that this package is linked as is set by the pnpm lockfile. If it is
     # specified here then it won't be load bearing since the value in the pnpm
     # lockfile will take precedence.
     srcs = [
         "package.json",
-        ":lib",
+        ":ts",
     ],
 )
