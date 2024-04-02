@@ -3,6 +3,9 @@ load("@aspect_rules_js//js:defs.bzl", "js_library")
 js_library(
     name = "vanilla_js",
     srcs = ["index.js"],
-    deps = ["//:node_modules/lodash-es"],
     visibility = ["//visibility:public"],
+    deps = [
+        "//:node_modules/lodash-es",
+        "//package/numbers",
+    ],
 )
